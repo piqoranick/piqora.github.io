@@ -1,0 +1,91 @@
+.tour-form {
+    @include outerContainer;
+    background: url(../img/bg-tour-form.jpg);
+    background-size:cover;
+    border-bottom: 1px solid rgba(0,0,0,.3);
+    border-top: 1px solid rgba(0,0,0,.3);
+    margin-top: -2px;
+
+    h2 {
+        @include sectionHeadline;
+        text-shadow: 0 1px 0 rgba(255,255,255,.3);
+    }
+
+    form {
+        @include clear;
+        margin-bottom: $verticalSpacingMedium;
+        
+        @media screen and (max-width: 835px) {
+            margin-bottom: 0;
+        }
+    }
+
+    input {
+        float: left;
+        display: block;
+        margin-right: 3.03030303%; /* 30/990 */
+        width: 25.55555556%; /* 253/990 */
+
+        &:nth-of-type(2) {
+            @media screen and (max-width: 835px) {
+                margin-right: 0;
+            }
+        }
+
+        @media screen and (max-width: 835px) {
+            margin: 0 3.592814371% 30px 0;
+            width: 48.20359281%; /* 402.5/835 */
+        }
+
+        @media screen and (max-width: 440px) {
+            float: none;
+            margin: 0 0 20px 0;
+            width: 100%;
+        }
+
+    }
+
+    input[type=submit] {
+        margin: 1px 0 0 0;
+        width: 14.14141414%; /* 140/990 */
+
+        @media screen and (max-width: 835px) {
+            width: 28.28282828%; /* 280/990 */
+        }
+
+        @media screen and (max-width: 440px) {
+            margin-bottom: 30px;
+        }
+
+    }
+
+    p {
+        text-shadow: 0 -1px 1px rgba(0,0,0,.2);
+        color: #fff;
+        font-size: 18px;
+    }
+}
+
+input, textarea {
+    box-sizing: border-box;
+}
+
+input:not([type=submit]),
+textarea {
+    @include borderRadius(4px);
+    border: 1px solid rgba(0,0,0,.3);
+    color: lighten($colorBodyAlt,20%);
+    font: {
+        family: $fontSans;
+        size: 20px;
+    }
+    padding: 10px;
+}
+
+input[type=submit] {
+    -webkit-font-smoothing: antialiased;
+    @include mainCta;
+    cursor: pointer;
+    font-family: $fontSans;
+    padding: 12px;
+}

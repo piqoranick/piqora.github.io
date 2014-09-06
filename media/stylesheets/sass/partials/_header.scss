@@ -1,0 +1,199 @@
+.logo {
+	@include textOffscreen(url(../img/logo-piqora.png),110px,44px);
+	float: left;
+	margin-right: 10px;
+}
+
+header {
+	@include contentContainer;
+	@include clear;
+            border-bottom: 1px solid $colorBorders;
+	padding: 30px 0;
+            top: -105px;
+
+            &.sticky {
+                width: 100%;
+                max-width: 100%;
+                padding: 30px;
+                position: fixed;
+                left: 0;
+                right: 0;
+                top: 0;
+                z-index: 1000;
+                background: transparentize(#fff, 0.2);
+                -webkit-transition: top 0.3s ease;
+                -moz-transition: top 0.3s ease;
+                -o-transition: top 0.3s ease;
+                transition: top 0.3s ease;
+            }
+
+	a {
+		color: adjust-color($colorBodyAlt,$lightness: -30%,$saturation:90%,$alpha: -.4);
+        display: block;
+        padding: 15px 10px;
+        text-shadow: 0 1px 0 rgba(255,255,255,.3);
+        
+        &:hover {
+            color: $colorAccent;
+        }
+    }
+
+	ul {
+        li {
+    		@include subTitleStyle;
+            display: block;
+            float: left;
+            margin: 0 0 0 10px;
+            position: relative;
+    	
+            .secondary-navigation {
+                @include borderRadius(5px);
+                background-color: #fff;
+                border: 1px solid rgba(0,0,0,.15);
+                border-bottom: 1px solid rgba(0,0,0,.18);
+                box-shadow: 0 0 5px rgba(0,0,0,.15);
+                display: none;
+                left: 10px;
+                position: absolute;
+                top: 40px;
+                width: 280px;
+
+                li {
+                    border-bottom: 1px solid lighten($colorBorders,8%);
+                    float: none;
+                    font: {
+                        size: 16px;
+                        weight: 600;
+                    }
+                    line-height: 1.4em;
+                    letter-spacing: 0;
+                    margin: 0;
+                    text-transform: none;
+                    &:last-of-type {
+                        border-bottom: none;
+                    }
+                }
+                a {
+                    display: block;
+                    padding: 10px 20px;
+                }
+                em {
+                    -webkit-font-smoothing: subpixel-antialiased;
+                    color: $colorBody;
+                    display: block;
+                    font: {
+                        size: 14px;
+                        style: normal;
+                        weight: 500;
+                    }
+                }
+                img {
+                    @include iconContainer (10px,$colorAccent);
+                    float: left;
+                    margin: 0 10px 0 0;
+                }
+                a:hover img {
+                    background-color: $colorBodyDark;
+                }
+                &:after {
+                    display: block;
+                    position: absolute;
+                    top: -8px;
+                    left: 20px;
+                    content: "";
+                    background: url(../img/triangle-tip-top.png) no-repeat;
+                    width: 15px;
+                    height: 12px;
+                }
+            }
+
+            &:hover {
+                a {
+                    color: $colorAccent;
+                }
+                li a {
+                    color: $colorAccent;
+                    &:hover {
+                        color: $colorBodyDark;                        
+                    }
+                }
+                .secondary-navigation {
+                    display: block;
+                }
+            }
+        }
+
+        &.featured-navigation {
+            float: right;
+        }
+    }
+
+    &.no-border {
+        border-bottom: none;
+    }
+
+    .main-cta {
+        @include mainCta;
+        margin: 0 10px 0 0;
+        text-shadow: none;
+    }
+
+    .jump-navigation {
+        display: none;
+    }
+
+    @media screen and (max-width: 750px) {
+        
+        padding-bottom: 25px;
+
+        .logo {
+            float: left;
+            margin-bottom: 0;
+        }
+
+        .main-navigation li {
+            display: none;
+        
+            &.jump-navigation {
+                display: block;
+            }
+        }
+    }
+
+    @media screen and (max-width: 850px), (max-width: 590px) {
+        
+        padding-bottom: 20px;
+
+        .logo {
+            float: none;
+            margin-bottom: 10px;
+        }
+
+        .main-navigation {
+            margin-left: -20px;
+        }
+    }
+
+    @media screen and (max-width: 430px) {
+        
+        padding: 10px 0;
+
+        .logo {
+            margin: 20px 0 15px 0;
+        }
+        
+        .main-navigation {
+            float: none;
+            margin-right: -10px;
+        }
+
+        .featured-navigation li {
+            margin-right: -10px;
+        }
+
+        .main-cta {
+            @include mainCtaUndo;
+            padding: 15px 10px;
+        }
+    }
+}

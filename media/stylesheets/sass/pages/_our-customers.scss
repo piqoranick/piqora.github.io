@@ -1,0 +1,133 @@
+.leading-brands {
+	border-bottom: 1px solid rgba(0,0,0,.1);
+
+	h2 {
+		text-align: center;
+	}
+
+	p {
+		font-size: 20px;
+		margin: 30px auto 50px auto;
+		text-align: center;
+		width: 80%;
+	}
+
+	.client-logos li {
+		float: left;
+		margin-right: 3.03030303%;
+
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+}
+
+.client-quotes {
+	padding: 60px 0;
+	blockquote {
+		float: left;
+		margin-right: 3.03030303%;
+		width: 31.31313131%;
+
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+
+	p {
+		margin-bottom: 30px;
+	}
+
+	cite {
+		line-height: 1.5em;
+	}
+}
+
+.promotions {
+	h3 {
+		border-bottom: 1px solid rgba(0,0,0,.15);
+		padding-bottom: 30px;
+	}
+
+	li {
+		float: left;
+		margin: 30px 3.03030303% 30px 0;
+		width: 22.72727273%;
+
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+
+	img {
+		margin-bottom: 30px;
+	}
+
+	.promotion {
+		@include imageFrame;
+		margin: 30px 0 0 0;
+		width: 100%;
+	}
+}
+
+.case-study {
+	padding: 30px 0;
+	.study {
+		@include borderRadius(5px);
+		background: $colorContentAlternate;
+        border: 1px solid darken($colorContentAlternate,10%);
+        float: left;
+        margin-right: 3.03030303%; /* 30/990 */
+        padding: 30px;
+        width: 48.48484848%; /* 480/990 */
+
+        &:last-of-type {
+        	margin-right: 0;
+        }
+
+        h5 {
+        	border-bottom: 1px solid rgba(0,0,0,.15);
+        	margin-bottom: 30px;
+        	padding-bottom: 10px;
+        }
+
+        h4 {
+        	font-size: 18px;
+        	margin-bottom: 20px;
+        }
+
+        a {
+        	@include mainCta;
+	        -webkit-font-smoothing: antialiased;
+	        display: inline-block;
+        }
+
+        img {
+        	@include imageFrame;
+        	float: left;
+        	margin: 3px 6.25% 0 0;
+        }
+	}
+	.mini-studies {
+		margin-top: 60px;
+		li {
+			float: left;
+	        margin-right: 3.03030303%; /* 30/990 */
+			width: 31.31313131%;
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+
+			img {
+				float: left;
+				margin-right: 30px;
+			}
+
+			p {
+				float: right;
+				width: 64.51612903%; /* 200/310 */
+			}
+		}
+	}
+}

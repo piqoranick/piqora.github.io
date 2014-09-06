@@ -1,0 +1,214 @@
+@mixin outerContainer {
+    padding: 0 5%;
+}
+
+@mixin contentContainer {
+    margin: 0 auto;
+    max-width: 990px;
+    width: 100%;
+}
+
+@mixin clear() {
+    &:before, &:after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        overflow: hidden;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin linearGradient($fromColor, $toColor) {
+    background-color: $toColor; /* Fallback Color */
+    background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+    background-image:    -moz-linear-gradient(top, $fromColor, $toColor); /* FF3.6 */
+    background-image:     -ms-linear-gradient(top, $fromColor, $toColor); /* IE10 */
+    background-image:      -o-linear-gradient(top, $fromColor, $toColor); /* Opera 11.10+ */
+    background-image:         linear-gradient(top, $fromColor, $toColor);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$fromColor}', EndColorStr='#{$toColor}');
+}
+
+@mixin columnLayout($columnCount,$columnGap,$columnFill) {
+    -webkit-column-count: $columnCount;
+    -webkit-column-gap: $columnGap;
+    -webkit-column-fill: $columnFill;
+    -moz-column-count: $columnCount;
+    -moz-column-gap: $columnGap;
+    -moz-column-fill: $columnFill;
+    column-count: $columnCount;
+    column-gap: $columnGap;
+    column-fill: $columnFill;
+}
+
+@mixin columnBreak($columnBreak) {
+    -webkit-column-break-inside: ($columnBreak);
+    -moz-column-break-inside: ($columnBreak);
+    column-break-inside: ($columnBreak);
+}
+
+@mixin borderRadius($radius) {
+    border-radius: ($radius);
+    -webkit-background-clip: padding-box; 
+    -moz-background-clip: padding; 
+    background-clip: padding-box;
+}
+
+@mixin mainCta {
+    @include calloutText(#fff);
+    @include borderRadius(5px);
+    background: $colorAccent;
+    border: 1px solid darken($colorAccent, 30%);
+    border-bottom: 1px solid darken($colorAccent, 33%);
+    box-shadow: 0 1px 2px rgba(0,0,0,.3);
+    padding: 10px 15px;
+
+    &:hover {
+        background-color: $colorBodyAlt;
+        border: 1px solid darken($colorBodyAlt, 15%);
+        color: #fff;
+    }
+}
+
+@mixin mainCtaUndo {
+    @include borderRadius(0);
+    background: none;
+    border: none;
+    box-shadow: none;
+    color: $colorAccent;
+    font: {
+        size: inherit;
+        weight: inherit;
+    }
+    letter-spacing: inherit;
+    padding: 15px 10px;
+
+    &:hover {
+        background-color: transparent;
+        border: none;
+        color: $colorBodyDark;
+        padding: 15px 10px;
+    }
+}
+
+@mixin secondaryCta {
+    @include largeButton;
+    @include borderRadius(5px);
+    @include linearGradient(adjust_color($color: $colorCtaHighlight, $lightness: 5%, $alpha: -0.3),adjust_color($color: $colorCtaHighlight, $alpha: -0.3));
+    border: 1px solid adjust_color($color: $colorCtaHighlight, $saturation: -25%, $lightness: -15%);
+    border-bottom: 1px solid adjust_color($color: $colorCtaHighlight, $saturation: -25%, $lightness: -25%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.4), 0 1px 4px rgba(0,0,0,.15);
+    position: relative;
+    text-shadow: 0 1px 0 rgba(255,255,255,.8);
+
+    &:hover {
+        @include linearGradient(adjust_color($color: $colorCtaHighlight, $lightness: 5%),adjust_color($color: $colorCtaHighlight, $lightness: 1%));
+        
+        strong, em {
+            color: $colorBodyDark;
+        }
+    }
+}
+
+@mixin largeButton {
+    line-height: 1.4em;
+    padding: 0 15px 0 0;
+    display: block;
+
+    strong {
+        @include calloutText($colorBodyAlt);
+        -webkit-font-smoothing: antialiased;
+        display: block;
+        padding-top: 11px;
+    }
+
+    em {
+        @include bodyText;
+        line-height: 1.5em;
+        text-transform: none;
+    }
+
+    img {
+        float: left;
+        padding: 17px 15px;
+    }
+}
+
+@mixin iconContainer ($padding,$background) {
+    border-radius: (100%);
+    background-color: $background;
+    padding: ($padding);
+
+    &:hover {
+        background-color: $colorBodyDark;
+    }
+}
+
+@mixin imageFrame {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.2);
+    box-shadow: 0 0 5px rgba(0,0,0,.1);
+    padding: 5px;
+}
+
+@mixin textOffscreen($background, $width, $height) {
+    text-indent: -9999px;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+    font-size: 0;
+    text-align: start;
+    background: $background;
+    width: $width;
+    height: $height;
+}
+
+@mixin bodyText {    
+    font-family: $fontSerif;
+    font-size: 16px;
+    line-height: 1.75em;
+}
+
+@mixin calloutText($color) {
+    color: $color;
+    font: {
+        size: 16px;
+        weight: 700;
+    }
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+@mixin subTitleStyle {
+    -webkit-font-smoothing: antialiased;
+    font: {
+        size: 12px;
+        weight: 900;
+    }
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+@mixin sectionHeadline {
+    -webkit-font-smoothing: antialiased;
+    font: {
+        size: 42px;
+        weight: 700;
+    }
+    line-height: 1.15em;
+    letter-spacing: -1px;
+    margin-bottom: $verticalSpacingMedium;
+}
+
+@mixin sectionSubHeadline {
+    -webkit-font-smoothing: antialiased;
+    font: {
+        size: 32px;
+        weight: 700;
+    }
+    line-height: 1.3em;
+    letter-spacing: -1px;
+    margin-bottom: $verticalSpacingMedium;
+}

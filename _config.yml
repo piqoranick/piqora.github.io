@@ -1,0 +1,12 @@
+# Site settings
+title: Piqora
+email: hello@piqora.com
+description: "Piqora is the complete marketing suite for Pinterest &amp; Instagram. Get access to the most advanced analytics and promotions platform for the visual web."
+baseurl: ""
+url: "http://piqmarketing.github.io"
+twitter_username: jekyllrb
+github_username:  jekyll
+
+# Build settings
+markdown: kramdown
+permalink: pretty

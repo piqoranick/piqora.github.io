@@ -1,0 +1,61 @@
+body {
+    color: $colorBody;
+    font-family: $fontSans;
+    font-size: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+    color: $colorAccent;
+    
+    &:hover {
+        color: $colorBodyDark;
+    }
+}
+
+h2 {
+    color: $colorBodyDark;
+    @include sectionHeadline;
+    line-height: 1.2857142857em;
+}
+
+h3 {
+    color: $colorBodyDark;
+    @include sectionSubHeadline;
+}
+
+h4 {
+    color: $colorBodyAlt;
+    font: {
+        family: $fontSerif;
+        size: 20px;
+    }
+    line-height: 1.75em;
+}
+
+h5 {
+    @include calloutText($colorBodyDark);
+    line-height: 1.5em;
+    margin-bottom: 15px;
+}
+
+p {
+    @include bodyText;
+}
+
+.headline-alt {
+    color: $colorBodyAlt;
+}
+
+.container {
+    @include contentContainer;
+    padding: $verticalSpacingLarge 0;
+}
+
+.clear {
+    @include clear;
+}

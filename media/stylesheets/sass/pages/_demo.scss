@@ -1,0 +1,168 @@
+.demo-main {
+    @include outerContainer;
+    background: url(../img/banner-bg-demo.jpg) no-repeat right bottom;
+    background-size: cover;
+    padding-bottom: 30px;
+
+    h5 {
+        margin-bottom: 20px;
+    }
+
+    form,
+    .client-quote,
+    .video-module {
+        @include borderRadius(7px);
+        border: 1px solid rgba(0,0,0,.13);
+        box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    }
+
+    form {
+        background: rgba(255,255,255,.8);
+        float: left;
+        padding: 50px 50px 30px 50px; 
+        width: 48.48484848%; /* 480/990 */
+
+        @media screen and (max-width:770px) {
+            float: none;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+
+        em {
+            color: $colorAccent;
+            font-style: italic;
+            float: right;
+        }
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    input:not([type=submit]),
+    textarea {
+        background: $colorContentHighlight;
+        border: 1px solid rgba(0,0,0,.1);
+    }
+
+    input[type=submit] {
+        padding: 15px;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus,
+    button:focus {
+        outline: none;
+    }
+
+    .field-group {
+        @include clear;
+    }
+
+    .small-field {
+        float: left;
+        width: 46%;
+    
+        &:last-of-type {
+            float: right;
+        }
+    }
+}
+
+.form-info {
+    float: right;
+    width: 45.45454545%; /* 450/990 */
+
+    .client-quote,
+    .video-module {
+        background: transparentize($colorContentAlternate, .2);
+        margin-bottom: 30px;
+        padding: 30px;
+
+        p {
+            float: left;
+            width: 68.78306878%; /* 260/378 */
+        }
+    }
+
+    .attribution {
+        float: right;
+        width: 21.16402116%; /* 80/378 */
+
+        img {
+            margin-bottom: 20px;
+        }
+
+        cite {
+            display: block;
+            font-size: 12px;
+            letter-spacing: 1px;
+            line-height: 1.4em;
+            text-transform: uppercase;
+            text-align: center;
+        }
+    }
+
+    .video-module {
+        p {
+            float: left;
+            width: 50%;
+        }
+        img {
+            @include borderRadius(3px);
+            @include imageFrame;
+            float: right;
+            width: 42%;
+        }
+    }
+
+    @media screen and (max-width:770px) {
+        float: none;
+        width: 100%;
+
+        .client-quote,
+        .video-module {
+            padding: 50px;
+        }
+    }
+}
+
+.demo-faq {
+    @include outerContainer;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    border-top: 1px solid rgba(0,0,0,.1);
+
+    .container {
+        padding-bottom: 0;
+    }
+
+    ul {
+        @include columnLayout(2,1.875em,auto);
+
+        @media screen and (max-width:770px) {
+            @include columnLayout(1,0,auto);
+        }
+    }
+
+    h4 {
+        margin-bottom: 20px;
+    }
+
+    li {
+        @include columnBreak(avoid);
+        @include borderRadius(5px);
+        background: $colorContentAlternate;
+        border: 1px solid darken($colorContentAlternate,10%);
+        margin-bottom: 30px;
+        overflow: visible;
+        padding: 30px;
+    }
+}

@@ -1,0 +1,604 @@
+.product-banner {
+    @include outerContainer;
+
+    .container {
+        padding-bottom: 0;
+    }
+
+    h2 {
+        @include sectionSubHeadline;
+        font-size: 42px;
+        letter-spacing: -1px;
+        margin-bottom: 10px;
+        text-shadow: 0 1px 0 rgba(255,255,255,.3);
+    }
+
+    p {
+        font-size: 20px;
+        text-shadow: 0 1px 0 rgba(255,255,255,.2);
+    }
+
+    .product-steps {
+        @include clear;
+        @include borderRadius(5px);
+
+        margin: 70px 0 $verticalSpacingMedium 0;
+        text-shadow: 0 1px 0 rgba(255,255,255,.2);
+
+        @media screen and (max-width: 500px) {
+            display: table;
+        }
+        
+        li {
+            -webkit-background-clip: padding-box; 
+            -moz-background-clip: padding; 
+            background-clip: padding-box;
+            border: 1px solid rgba(0,0,0,.3);
+            border-right: none;
+            box-shadow: 0 2px 3px rgba(0,0,0,.1);
+            display: table;
+            float: left;
+            position: relative;
+            vertical-align: middle;
+            width: 25%;
+
+            &.step-one {
+                background: transparentize($colorSubnavStepOne, .2);
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+
+                &:hover {
+                    background: $colorSubnavStepOne;
+                }
+
+                @media screen and (max-width: 760px) {
+                    border-bottom-left-radius: 0;
+                    border-bottom: none;
+                }
+            }
+
+            &.step-two {
+                background: transparentize($colorSubnavStepTwo, .1);
+                border-bottom: 1px solid rgba(0,0,0,.4);
+
+
+                &:hover {
+                    background: $colorSubnavStepTwo;
+                }
+
+                @media screen and (max-width: 760px) {
+                    border-top-right-radius: 5px;
+                    border-right: 1px solid rgba(0,0,0,.3);
+                    border-bottom: none;
+                }
+            }
+
+            &.step-three {
+                background: transparentize($colorSubnavStepThree, .15);
+                border-bottom: 1px solid rgba(0,0,0,.6);
+
+                &:hover {
+                    background: $colorSubnavStepThree;
+                }
+
+                @media screen and (max-width: 760px) {
+                    border-bottom-left-radius: 5px;
+                }
+            }
+
+            &.step-four {
+                background: transparentize($colorSubnavStepFour, .2);
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                border-right: 1px solid rgba(0,0,0,.3);
+
+                &:hover {
+                    background: $colorSubnavStepFour;
+                    border: 1px solid rgba(0,0,0,.6);
+                }
+
+                @media screen and (max-width: 760px) {
+                    border-top-right-radius: 0;
+                    border-bottom: 1px solid rgba(0,0,0,.6);
+                }
+            }
+
+            @media screen and (max-width: 760px) {
+               width: 50%;
+            }
+
+            &.step-one,
+            &.step-two,
+            &.step-three,
+            &.step-four {
+                -webkit-background-clip: padding-box; 
+                -moz-background-clip: padding; 
+                background-clip: padding-box;            
+                @media screen and (max-width: 500px) {
+                    border: 1px solid rgba(0,0,0,.4);
+                    border-bottom: none;
+                    border-radius: 0;
+                    width: 100%;
+                }
+            }
+
+            &.step-one {
+                @media screen and (max-width: 500px) {
+                    border-top-left-radius: 6px;
+                    border-top-right-radius: 6px;
+                }
+            }
+
+            &.step-four {
+                @media screen and (max-width: 500px) {
+                    border-bottom-left-radius: 6px;
+                    border-bottom-right-radius: 6px;
+                    border-bottom: 1px solid rgba(0,0,0,.5);
+                }
+            }
+        }
+
+        a {
+            color: $colorBodyDark;
+            display: table-cell;
+            height: 100px;
+            line-height: 1.375em;
+            padding: 0 30px 0 40px;
+            vertical-align: middle;
+            width: 100%;
+
+            &:hover {
+                color: darken($colorBodyDark,20%);
+
+                span:not(.restart) {
+                    background: $colorAccent;
+                }
+            }
+
+            @media screen and (max-width: 855px) {
+               height: 130px;
+            }
+
+            @media screen and (max-width: 760px) {
+               height: 90px;
+            }
+
+            @media screen and (max-width: 500px) {
+                width: 100%;
+            }
+        }
+
+        span {
+            @include borderRadius(100%);
+            background: $colorBodyDark;
+            color: #fff;
+            font: {
+                size: 22px;
+                weight: 700;
+            }
+            height: 40px;
+            left: -20px;
+            margin-top: -20px;
+            padding-top: 7px;
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            width: 40px;
+        
+            &.restart {
+                left: auto;
+                right: -20px;
+            }
+        }
+    }
+
+    .demo-cta {
+        @include clear;
+        @include borderRadius(5px);
+        @include calloutText($colorAccent);
+        @include linearGradient(#FFF,rgba(255,255,255,.5));
+        -webkit-font-smoothing: antialiased;
+        border: 1px solid rgba(0,0,0,.2);
+        box-shadow: 0 2px 3px rgba(0,0,0,.1);
+        display: block;
+        margin: $verticalSpacingLarge auto $verticalSpacingMedium auto;
+        padding: 30px 3.03030303%; /* 30/990 */
+        text-align: center;
+        width: 41.41414141%; /* 410/990 */
+
+        strong {
+            float: left;
+        }
+
+        img {
+            @include iconContainer(10px,$colorAccent);
+            float: right;
+            margin: -10px 0;
+        }
+
+        &:hover {
+            color: $colorBodyDark;
+
+            img {
+                background-color: $colorBodyDark;
+            }
+        }
+
+        @media screen and (max-width: 855px) {
+            width: 50.64935065%;
+        }
+
+        @media screen and (max-width: 685px) {
+            padding: 30px 4.379562044%; /* 30/685 */
+            width: 60%;
+        }
+
+        @media screen and (max-width: 600px) {
+            width: 80%;
+        }
+
+        @media screen and (max-width: 500px) {
+            width: 100%;
+        }
+    }
+
+    .content-frame {
+        background: #fff;
+        border: {
+            top: 1px solid rgba(0,0,0,.5);
+            top-left-radius: 5px;
+            top-right-radius: 5px;
+        }
+        box-shadow: 0 -1px 2px rgba(0,0,0,.1);
+        height: 56px;
+        margin: 60px 0 -30px 4px;
+        position: relative;
+        width: 99.19191919%;
+
+        img {
+            left: -4px;
+            position: absolute;
+            top: -1px;
+            
+            &:last-of-type {
+                left: auto;
+                right: -4px;
+            }
+        }
+    }    
+
+    &.pinterest-banner {
+        background: url(../img/banner-bg-pinterest.jpg) no-repeat right bottom; 
+        background-size: auto 100%;
+
+        @media screen and (min-width: 1170px) {
+            background: url(../img/banner-bg-pinterest.jpg) no-repeat right top; 
+            background-size: auto 120%;
+        }
+
+        @media screen and (max-width: 785px) {
+            background: url(../img/banner-bg-pinterest.jpg) no-repeat 85% top; 
+            background-size: auto 110%;
+        }
+
+        @media screen and (max-width: 590px) {
+            background: url(../img/banner-bg-pinterest.jpg) no-repeat 55% bottom; 
+            background-size: auto 110%;
+        }
+
+        h2 {
+            font-size: 36px;
+            text-align: center;
+            
+            em {
+                color: lighten($colorBodyDark,10%);
+            }
+        
+            @media screen and (max-width: 990px) and (min-width: 685px) {
+                margin: 0 auto 30px auto;
+                width: 80%;
+            }
+        }
+
+        p {
+            color: rgba(0,0,0,.5);
+            text-align: center;
+            
+            @media screen and (max-width: 505px) {
+                font-size: 18px;
+            }
+        }
+    }
+
+    &.instagram-banner {
+        background: #f8f6f5 url(../img/banner-bg-instagram.png) no-repeat bottom right;
+        background-size: auto 75%;
+
+         @media screen and (min-width: 1400px) {
+             background-size: auto 80%;
+         }
+
+        @media screen and (max-width: 1025px) {
+            background-size: auto 60%;
+        }
+
+        @media screen and (max-width: 500px) {
+            background: #f8f6f5 url(../img/banner-bg-instagram.png) no-repeat center bottom;
+            background-size: auto 70%;
+        }
+
+        h2 {
+            font-size: 40px;
+            float: left;
+            width: 35%;
+
+            @media screen and (max-width: 670px) {
+                width: 100%;
+            }
+        }
+
+        p {
+            float: right;
+            font-size: 18px;
+            margin: 0;
+            width: 60%;
+        
+            @media screen and (max-width: 670px) {
+                width: 100%;
+            }
+        }
+
+        .product-steps {
+            margin-top: 60px;
+
+            li {
+                font-size: 15px;
+                text-align: center;
+            }
+
+            a {
+                height: 130px;
+                padding: 10px 30px 0 30px;
+            }
+
+            span {            
+                background: #fff;
+                box-shadow: 0 0 2px rgba(0,0,0,.9);
+                left: 50%;
+                margin-left: -20px;
+                top: 0;
+            }
+
+            a:hover span {
+                background: #fff;
+            }
+        }
+    }
+
+    &.tumblr-banner {
+        background: url(../img/banner-bg-tumblr.jpg) no-repeat 50% top;
+        background-size: auto 100%;     
+        
+        @media screen and (min-width:1225px) {
+            background-size: cover;    
+        }
+
+        .featured-navigation a {
+            color: #FFF;
+            text-shadow: 0 1px 1px rgba(0,0,0,.1);
+        }
+
+        .container {
+            padding-bottom: 50px;
+        }
+
+        .banner-description {
+            width: 65.65656566%; /* 650/990 */
+
+            p {
+                color: rgba(0,0,0,0.5);
+            }
+
+            @media screen and (max-width:895px) {
+                width: 80%;
+            }
+
+             @media screen and (max-width:800px) {
+                width: 90%;
+            }
+
+            @media screen and (max-width:750px) {
+                width: 100%;
+            }
+        }  
+
+        .demo-cta {
+            margin: 50px 0 0 0;
+            width: 52.30769231%; /* 340/650 */
+
+            @media screen and (max-width:685px) {
+                width: 60%;
+            }
+
+            @media screen and (max-width:580px) {
+                width: 100%;
+            }
+        } 
+
+        .content-frame {
+            margin-bottom: -70px;
+        }
+    }
+}
+
+.instagram-features {
+    .container {
+        padding-top: 30px;
+    }
+
+    h3 {
+        margin-bottom: 60px;
+
+        @media screen and (max-width: 800px) {
+            text-align: center;
+        }
+    }
+
+    .container {
+        padding-bottom: 0;
+    }
+    
+    .feature-content {
+        
+        h5 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+    }
+}
+
+.client-highlight {
+    @include outerContainer;
+
+    blockquote {
+
+        float: left;
+        text-indent: -10px;
+        width: 65.65656566%; /* 650/990 */
+
+        @media screen and (max-width: 650px) {
+            text-align: center;
+            width: 100%;
+        }
+
+        p {
+            color: $colorBodyDark;
+            font: {
+                family: $fontSans;
+                size: 28px;
+                weight: 300;
+            }
+            margin-bottom: 30px;
+
+            @media screen and (max-width: 840px) {
+                font-size: 24px;
+            }
+        }
+
+        cite {
+            font-family: $fontSerif;
+        }
+
+        img {
+
+            float: right;
+
+            @media screen and (max-width: 840px) {
+                display: block;
+                float: none;
+                margin: 30px 0 0 0;
+            }
+
+            @media screen and (max-width: 650px) {
+                margin: 30px auto 0 auto;
+            }
+        }
+
+    }
+
+    .client-highlight-image {
+        float: right;
+        width: 24.34343434%;
+
+        @media screen and (max-width: 650px) {
+            display: block;
+            float: none;
+            margin: 30px auto;
+            width: 36.92307692%;
+        }
+    }
+}
+
+.tumblr-features {
+    &.feature-overview {
+        padding-bottom: 60px;
+        position: relative;
+        z-index: 3;
+
+        .feature-headline {
+            margin: 30px 0 50px 0;
+    
+            h4 {
+                width: 100%;
+            }
+        }
+    }
+
+    .features-center .feature-description,
+    .features-center .main-cta {
+        margin-top: 20px;
+    }
+
+}
+
+.product-screenshots {
+    @include outerContainer;
+    box-shadow: none;
+
+    h3 {
+        float: left;
+    }
+
+    .container {
+        padding-bottom: 0;
+        max-width: 998px;
+    }
+
+    .screenshots-icon {
+        float: right;
+
+        li {
+            display: inline-block;
+            height: 50px;
+            width: 50px;
+
+            a {
+                display: block;
+            }
+        }
+
+        img {
+            @include iconContainer(10px,#f26b63);
+        }
+    }
+
+    .screenshots {
+        clear: both;
+        display: block;
+
+        li {
+            display: none;
+    
+            &.show {
+                display: block;
+            }
+        }
+
+        img {
+            width: 100%;
+            -webkit-background-clip: padding-box; 
+            -moz-background-clip: padding; 
+            background-clip: padding-box;
+            border: 1px solid rgba(0,0,0,.1);
+            border-bottom: none;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            box-shadow: 0 1px 5px rgba(0,0,0,.1);
+            margin-top: 30px;
+        }
+    }
+}

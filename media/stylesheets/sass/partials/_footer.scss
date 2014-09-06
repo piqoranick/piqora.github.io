@@ -1,0 +1,100 @@
+footer {
+    @include outerContainer;
+
+    &.alt-color {
+        background: $colorContentHighlight;
+    }
+
+    .container {
+        @include clear;
+    }
+
+    .footer-section {
+        float: left;
+        margin: 0 3.03030303% 30px 0;
+        width: 17.57575758%; /* 174/990 */
+
+        @media screen and (max-width: 752px) and (min-width: 500px) {
+            margin: 0 4.016064257% 30px 0; /* 30/747 */
+            width: 30.65595716%; /* 229/747 */
+            
+            &:nth-of-type(3) {
+                margin-right: 0;
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+            margin: 0 6% 30px 0;
+            width: 47%;
+
+            &:nth-of-type(even) {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .footer-section:last-of-type {
+        margin-right: 0;
+
+        @media screen and (max-width: 752px) {
+            margin-right: 4.016064257%;
+        }
+
+        @media screen and (max-width: 500px) {
+            margin-right: 6%;
+        }
+    }
+
+    p {
+        float: right;
+        font-size: 14px;
+
+        @media screen and (max-width: 752px) {
+            float: none;
+        }
+    }
+
+    h6 {
+        @include subTitleStyle;
+        border-bottom: 1px solid $colorBorders;
+        color: #ada9a5;
+        font: {
+            size: 14px;
+            weight: 700;
+        }
+        padding-bottom: 5px;
+    }
+
+    ul:not(.social-icons) a {
+        -webkit-font-smoothing: antialiased;
+        border-bottom: 1px solid $colorBorders;
+        color: $colorBodyAlt;
+        display: block;
+        font: {
+            size: 14px;
+            weight: 600;
+        }
+        padding: 8px 0;
+    }
+
+    .social-icons {
+        float: left;
+
+        h6 {
+            border-bottom: none;
+            margin-bottom: 20px;
+        }
+
+        li {
+            float: left;
+        }
+        img {
+            @include iconContainer(10px,$colorAccent);
+            margin-right: 10px;
+        }
+
+        @media screen and (max-width: 500px) {
+            margin-bottom: 20px;
+        }
+    }
+}

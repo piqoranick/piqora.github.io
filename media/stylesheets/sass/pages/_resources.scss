@@ -1,0 +1,210 @@
+.simple-banner {
+  @include outerContainer;
+  background-color: $colorContentAlternate;
+
+  h2 {
+    font-size: 32px;
+    margin-bottom: 0;
+  }
+
+  &.resources {
+    background: url(../img/banner-bg-resources.png) no-repeat left bottom;
+    background-size: cover;
+  }
+
+}
+
+.filter-nav {
+  @include outerContainer;
+  background:$colorContentHighlight;
+  border-top: 1px solid rgba(0,0,0,.2);
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
+
+  .container {
+    padding: 35px 0 10px 0;
+  }
+
+  h3 {
+   float: left;
+   font-size: 12px;
+   letter-spacing: 0;
+   margin-right: 10px;
+   text-transform: uppercase;
+ }
+
+ .type-filter li {
+   float: left;
+   font-size: 13px;
+
+   a {
+    background: #fff;
+    border-radius: 30px;
+    color: #85acb6;
+    margin-right: 5px;
+    padding: 1px 5px;
+
+    &.on {
+      background: $colorAccent;
+      color: #fff
+    }
+  }
+}
+
+.network-filter li {
+ float: left;
+ margin: -10px 10px 0 0;
+
+ a {
+  background: #ccc;
+  border-radius: 3px;
+  color: #fff;
+  display: block;
+  padding: 10px 15px 15px 10px;
+
+  &.on {
+    background: $colorAccent;
+    color: #fff
+  }
+
+  img {
+    float: left;
+  }
+
+  em {
+    -webkit-font-smoothing: antialiased;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}
+}
+}
+
+.resources-list {
+  @include outerContainer;
+
+  h3 {
+    display: block;
+    margin: 0  0 25px 0;
+    border-bottom: 1px solid $colorContentHighlight;
+  }
+
+  ul {
+   @include columnLayout(3,1em,auto);
+    margin-bottom: 15px;
+
+   @media screen and (max-width: 825px) {
+     @include columnLayout(2,1em,auto);
+   }
+
+   @media screen and (max-width: 545px) {
+    @include columnLayout(1,0,auto);
+  }
+}
+
+li {
+  display: inline-block;
+  @include borderRadius(5px);
+  -webkit-font-smoothing: antialiased;
+  background: $colorContentAlternate;
+  border: 1px solid darken($colorContentAlternate,10%);
+  margin-bottom: 15px;
+  padding: 20px;
+}
+
+.resource-type {
+  @include clear;
+  border-bottom: 1px solid rgba(0,0,0,.15);
+  display: block;
+  font: {
+    size: 13px;
+    weight: 700;
+  }
+  margin-bottom: 20px;
+  padding: 5px 0 15px 0;
+
+  img {
+    @include borderRadius(100%);
+    background: #D0D1CC;
+    float: left;
+    margin: -2px 3px 0 0;
+    padding: 3px;
+    width: 20px;
+  }
+}
+
+p {
+    @include clear;
+    font-family: $fontSans;
+    line-height: 1.4em;
+
+  img {
+    @include imageFrame;
+    float: left;
+    margin: 7px 20px 10px 0;
+    width: 90px;
+  }
+}
+
+a {
+  @include clear;
+  @include mainCta;
+  display: block;
+  margin-top: 30px;
+
+         strong {
+             display: inline-block;
+             float: left;
+             line-height: 1.3em;
+             width: 85%;
+         }
+
+  img {
+    @include borderRadius(100%);
+    float: right;
+    width: 20px;
+  }
+}
+}
+
+.resources-list[class*="pinterest"] {
+
+  li[data-networks*="pinterest"] {
+    display: inline-block !important;
+    opacity: 1 !important;
+  }
+
+  li:not([data-networks*="pinterest"]) {
+    display: none;
+    opacity: 0;
+  }
+
+}
+
+.resources-list[class*="instagram"] {
+
+  li[data-networks*="instagram"] {
+    display: inline-block !important;
+    opacity: 1 !important;
+  }
+
+  li:not([data-networks*="instagram"]) {
+    display: none;
+    opacity: 0;
+  }
+
+}
+
+.resources-list[class*="tumblr"] {
+
+  li[data-networks*="tumblr"] {
+    display: inline-block !important;
+    opacity: 1 !important;
+  }
+
+  li:not([data-networks*="tumblr"]) {
+    display: none;
+    opacity: 0;
+  }
+
+}
