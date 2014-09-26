@@ -1,3 +1,4 @@
+{% include navigation.html %}
 <section class="row">
 <div class="grid_11 prepend_1">
 <div class="block stripped_block faqs_block">
@@ -379,3 +380,4 @@ regarding this Agreement.</p>
 tagged photos from Instagram for a period of 120 days after initial access. Image caching allows
 Piqora to render faster reports in our dashboard. These images are deleted from our servers and
 local caches after 120 days.</p>
+{% include footer-form.html %}
